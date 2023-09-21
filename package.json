@@ -5,7 +5,7 @@
 	"homepage": "https://mrrokiton.github.io/star-wars-wiki/",
 	"type": "module",
 	"scripts": {
-		"predeploy": "npm run build",
+		"predeploy": "yarn run build",
 		"deploy": "gh-pages -d build",
 		"start": "yarn run dev",
 		"dev": "vite",
