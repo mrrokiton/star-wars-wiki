@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"predeploy": "yarn run build",
-		"deploy": "gh-pages -d build",
+		"deploy": "gh-pages -d dist",
 		"start": "yarn run dev",
 		"dev": "vite",
 		"build": "tsc && vite build",
