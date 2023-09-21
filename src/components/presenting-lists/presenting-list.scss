@@ -1,0 +1,13 @@
+.presenting-list {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	overflow-y: scroll;
+
+	&-element {
+		width: 18%;
+		height: 4%;
+		margin: 1%;
+	}
+}
