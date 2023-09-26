@@ -39,7 +39,7 @@ export const storeCharactersData = async (store: IStore, page: number) => {
 		store.addCharacter(characterId, characterData);
 	});
 
-	apiJSON.next && storeCharactersData(store, page + 1);
+	apiJSON.next && (await storeCharactersData(store, page + 1));
 };
 
 export const getPlanetsData = async (page: number) => {
@@ -59,7 +59,7 @@ export const storePlanetsData = async (store: IStore, page: number) => {
 		store.addPlanet(planetId, planetData);
 	});
 
-	apiJSON.next && storePlanetsData(store, page + 1);
+	apiJSON.next && (await storePlanetsData(store, page + 1));
 };
 
 export const getVehiclesData = async (page: number) => {
@@ -79,7 +79,7 @@ export const storeVehiclesData = async (store: IStore, page: number) => {
 		store.addVehicle(vehicleId, vehicleData);
 	});
 
-	apiJSON.next && storeVehiclesData(store, page + 1);
+	apiJSON.next && (await storeVehiclesData(store, page + 1));
 };
 
 export const getAllData = async (store: IStore) => {
