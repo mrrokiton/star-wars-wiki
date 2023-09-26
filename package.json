@@ -2,7 +2,7 @@
 	"name": "star-wars-wiki",
 	"private": true,
 	"version": "0.0.0",
-	"homepage": "https://mrrokiton.github.io/star-wars-wiki/",
+	"homepage": "https://mrrokiton.github.io/star-wars-wiki",
 	"type": "module",
 	"scripts": {
 		"predeploy": "yarn run build",
