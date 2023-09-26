@@ -1,23 +1,17 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { PresentingTileProps } from './presenting-tile-types';
 
 import './presenting-tile.scss';
+import { StarWarsImage } from '../star-wars-image/star-wars-image';
 
 export const PresentingTile = ({
 	id,
 	name,
 	pictureUrl,
 	dataType,
-}: PresentingTileProps) => {
-	const navigate = useNavigate();
-
-	return (
-		<div
-			className='presenting-tile'
-			onClick={() => navigate(`/${dataType}/${id}`)}
-		>
-			<p>{`name: ${name}`}</p>
-			<img src={pictureUrl} alt='no photo available' />
-		</div>
-	);
-};
+}: PresentingTileProps) => (
+	<Link to={`/${dataType}/${id}`} className='presenting-tile'>
+		<p className='presenting-tile-name'>{`name: ${name}`}</p>
+		<StarWarsImage pictureUrl={pictureUrl} className='presenting-tile-image' />
+	</Link>
+);

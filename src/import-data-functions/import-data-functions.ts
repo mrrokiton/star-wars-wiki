@@ -12,7 +12,7 @@ import {
 
 const url = 'https://swapi.dev/api';
 
-const apiCall = <T>(url: string): Promise<T> => {
+export const apiCall = <T>(url: string): Promise<T> => {
 	return fetch(url).then((response) => {
 		if (!response.ok) {
 			throw new Error(response.statusText);
@@ -21,13 +21,13 @@ const apiCall = <T>(url: string): Promise<T> => {
 	});
 };
 
-const getCharactersData = async (page: number) => {
+export const getCharactersData = async (page: number) => {
 	return await apiCall<ObjectWithCharactersResults>(
 		`${url}/people/?page=${page.toString()}`
 	);
 };
 
-const storeCharactersData = async (store: IStore, page: number) => {
+export const storeCharactersData = async (store: IStore, page: number) => {
 	const apiJSON = await getCharactersData(page);
 	const charactersArray = apiJSON.results;
 
@@ -41,13 +41,13 @@ const storeCharactersData = async (store: IStore, page: number) => {
 	apiJSON.next && (await storeCharactersData(store, page + 1));
 };
 
-const getPlanetsData = async (page: number) => {
+export const getPlanetsData = async (page: number) => {
 	return await apiCall<ObjectWithPlanetsResults>(
 		`${url}/planets/?page=${page.toString()}`
 	);
 };
 
-const storePlanetsData = async (store: IStore, page: number) => {
+export const storePlanetsData = async (store: IStore, page: number) => {
 	const apiJSON = await getPlanetsData(page);
 	const planetsArray = apiJSON.results;
 
@@ -61,13 +61,13 @@ const storePlanetsData = async (store: IStore, page: number) => {
 	apiJSON.next && (await storePlanetsData(store, page + 1));
 };
 
-const getVehiclesData = async (page: number) => {
+export const getVehiclesData = async (page: number) => {
 	return await apiCall<ObjectWithVehiclerResults>(
 		`${url}/vehicles/?page=${page.toString()}`
 	);
 };
 
-const storeVehiclesData = async (store: IStore, page: number) => {
+export const storeVehiclesData = async (store: IStore, page: number) => {
 	const apiJSON = await getVehiclesData(page);
 	const vehiclesArray = apiJSON.results;
 
@@ -81,7 +81,7 @@ const storeVehiclesData = async (store: IStore, page: number) => {
 	apiJSON.next && (await storeVehiclesData(store, page + 1));
 };
 
-const getAllData = async (store: IStore) => {
+export const getAllData = async (store: IStore) => {
 	await storeCharactersData(store, 1);
 	await storePlanetsData(store, 1);
 	await storeVehiclesData(store, 1);
