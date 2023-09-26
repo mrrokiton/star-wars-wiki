@@ -2,6 +2,7 @@ import { IStore } from '../store/store-types';
 import {
 	ObjectWithCharactersResults,
 	ObjectWithPlanetsResults,
+	ObjectWithSpeciesResults,
 	ObjectWithVehiclerResults,
 } from './import-data-functions-types';
 import {
@@ -91,4 +92,13 @@ export const getAllData = async (store: IStore) => {
 
 export const getStarWarsData = (store: IStore) => {
 	getAllData(store);
+};
+
+export const getSpeciesName = async (speciesId: string) => {
+	const apiJSON = await apiCall<ObjectWithSpeciesResults>(
+		`${url}/species/${speciesId}`
+	);
+	const species = apiJSON.name;
+	console.log(species);
+	return species;
 };

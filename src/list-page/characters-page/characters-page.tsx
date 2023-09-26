@@ -9,7 +9,7 @@ export const CharactersPage = observer(() => {
 
 	return (
 		<div className='list-page'>
-			<div className='list-page-title'>Characters list</div>
+			<div className='list-page-title'>CHARACTERS</div>
 			<PresentingList data={characters} dataType='people' />
 		</div>
 	);

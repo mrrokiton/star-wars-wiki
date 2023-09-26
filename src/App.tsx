@@ -6,7 +6,7 @@ import { observer } from 'mobx-react';
 import { store } from './store/store.ts';
 
 import './App.scss';
-import { Loading } from './general/loading.tsx';
+import { Loading } from './general/loading/loading.tsx';
 
 const App = observer(() => {
 	useEffect(() => getStarWarsData(store), []);

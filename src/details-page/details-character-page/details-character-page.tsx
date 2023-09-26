@@ -1,6 +1,11 @@
+import { useEffect, useState } from 'react';
 import { observer } from 'mobx-react';
 import { Link, useParams } from 'react-router-dom';
 import { store } from '../../store/store';
+import { StarWarsImage } from '../../components/star-wars-image/star-wars-image';
+import { getSpeciesName } from '../../import-data-functions/import-data-functions';
+
+import '../details-page.scss';
 
 export const DetailsCharacterPage = observer(() => {
 	const params = useParams();
@@ -9,27 +14,48 @@ export const DetailsCharacterPage = observer(() => {
 	const character = store.characters[id];
 	const vehicles = store.vehicles;
 	const planets = store.planets;
+	const [speciesName, setSpeciesName] = useState('');
+
+	useEffect(() => {
+		if (character.speciesId.length > 0) {
+			const getSpecies = async () =>
+				setSpeciesName(await getSpeciesName(character.speciesId[0]));
+			getSpecies();
+		} else {
+			setSpeciesName('Human');
+		}
+	}, []);
 
 	return (
-		<div>
-			<img src={character.pictureUrl} alt='no image found' />
-			<p>{character.name}</p>
-			<p>{character.speciesId}</p>
+		<div className='details-page'>
+			<StarWarsImage pictureUrl={character.pictureUrl} />
+			<p className='details-page-name'>{character.name}</p>
+			<p className='details-page-single-item'>{`Species: ${speciesName}`}</p>
 			{planets[character.planetId] && (
-				<Link to={`/planets/${character.planetId}`}>
-					{planets[character.planetId].name}
+				<Link
+					to={`/planets/${character.planetId}`}
+					className='details-page-single-item'
+				>
+					Planet: <u>{planets[character.planetId].name}</u>
 				</Link>
 			)}
-			<div>
-				{character.vehiclesId.map(
-					(vehicleId, index) =>
-						vehicles[vehicleId] && (
-							<Link to={`/vehicles/${vehicleId}`} key={index}>
-								{vehicles[vehicleId].name}
-							</Link>
-						)
-				)}
-			</div>
+			{character.vehiclesId.length > 0 && (
+				<div className='details-page-listing'>
+					Vehicles:
+					{character.vehiclesId.map(
+						(vehicleId, index) =>
+							vehicles[vehicleId] && (
+								<Link
+									to={`/vehicles/${vehicleId}`}
+									key={index}
+									className='details-page-listing-item'
+								>
+									{vehicles[vehicleId].name}
+								</Link>
+							)
+					)}
+				</div>
+			)}
 		</div>
 	);
 });

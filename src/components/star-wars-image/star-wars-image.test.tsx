@@ -17,6 +17,8 @@ describe(StarWarsImage, () => {
 
 		fireEvent.error(image);
 
-		expect(image.getAttribute('src')).toEqual('/src/assets/no-image.png');
+		expect(image.getAttribute('src')).toEqual(
+			'/src/assets/images/no-image.png'
+		);
 	});
 });

@@ -26,7 +26,7 @@ describe(PresentingTile, () => {
 		const presentingTileName = container.getElementsByTagName('p');
 		const presentingTileImage = container.getElementsByTagName('img');
 
-		expect(presentingTileName[0].textContent).toEqual(`name: ${name}`);
+		expect(presentingTileName[0].textContent).toEqual(name);
 		expect(presentingTileImage[0].src).toEqual(
 			`http://localhost:3000/${pictureUrl}`
 		);

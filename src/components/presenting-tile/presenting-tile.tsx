@@ -11,7 +11,12 @@ export const PresentingTile = ({
 	dataType,
 }: PresentingTileProps) => (
 	<Link to={`/${dataType}/${id}`} className='presenting-tile'>
-		<p className='presenting-tile-name'>{`name: ${name}`}</p>
-		<StarWarsImage pictureUrl={pictureUrl} className='presenting-tile-image' />
+		<div className='presenting-tile-content'>
+			<StarWarsImage
+				pictureUrl={pictureUrl}
+				className='presenting-tile-image'
+			/>
+			<p className='presenting-tile-name'>{name}</p>
+		</div>
 	</Link>
 );

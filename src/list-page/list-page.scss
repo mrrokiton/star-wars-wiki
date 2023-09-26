@@ -1,10 +1,18 @@
+@import '../assets/common-styles/common-styles.scss';
+
+$title-height: 150px;
+$font-size: 80px;
+$letter-spacing: 15px;
+
 .list-page {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 
 	&-title {
-		font-size: 36px;
-		height: 10vh;
+		@include star-wars-font-style;
+		letter-spacing: $letter-spacing;
+		font-size: $font-size;
+		height: $title-height;
 	}
 }

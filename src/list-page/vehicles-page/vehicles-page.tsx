@@ -9,7 +9,7 @@ export const VehiclesPage = observer(() => {
 
 	return (
 		<div className='list-page'>
-			<div className='list-page-title'>Vehicles list</div>
+			<div className='list-page-title'>VEHICLES</div>
 			<PresentingList data={vehicles} dataType='vehicles' />
 		</div>
 	);

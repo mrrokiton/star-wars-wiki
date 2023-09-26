@@ -1,0 +1,41 @@
+@import '../../assets/common-styles/common-styles.scss';
+
+$gif-height-width: 500px;
+$font-size: 30px;
+$padding: 35px;
+
+.loading-page {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&-container {
+		height: fit-content;
+		width: fit-content;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: $padding;
+
+		background: rgba(24, 24, 24, 0.2);
+		border-radius: 16px;
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		border: 1px solid rgba(24, 24, 24, 0.3);
+
+		img {
+			border-radius: 50%;
+			height: $gif-height-width;
+			width: $gif-height-width;
+		}
+
+		p {
+			@include star-wars-font-style;
+			font-size: $font-size;
+		}
+	}
+}

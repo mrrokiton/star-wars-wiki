@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import defaultImage from '../../assets/no-image.png';
+import defaultImage from '../../assets/images/no-image.png';
 import { StarWarsImageProps } from './star-wars-image-types';
 
 export const StarWarsImage = ({

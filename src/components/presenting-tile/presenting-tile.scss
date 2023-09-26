@@ -1,8 +1,60 @@
-.presenting-tile {
-	background-color: grey;
+@import '../../assets/common-styles/common-styles.scss';
 
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	cursor: pointer;
+$tile-width: 200px;
+$tile-height: 380px;
+$image-width-height: 200px;
+$font-size: 30px;
+
+$margin-x-size: 40px;
+
+$hover-multiplier: 1.1;
+
+@media (max-width: 1200px) {
+}
+
+.presenting-tile {
+	width: $tile-width;
+	height: $tile-height;
+	text-decoration: none;
+
+	margin: 0 $margin-x-size;
+
+	&-content {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		align-items: center;
+		vertical-align: middle;
+
+		transition: 0.3s;
+		width: $tile-width;
+		height: $tile-height;
+	}
+
+	&-image {
+		@include avatar-border;
+		height: $image-width-height;
+		width: $image-width-height;
+		transition: 0.3s;
+	}
+
+	&-name {
+		@include star-wars-font-style;
+		font-size: $font-size;
+		margin-top: 20px;
+		transition: 0.3s;
+	}
+
+	&:hover {
+		&-content {
+			width: $tile-width * $hover-multiplier;
+			height: $tile-height * $hover-multiplier;
+		}
+
+		.presenting-tile-image {
+			height: $image-width-height * $hover-multiplier;
+			width: $image-width-height * $hover-multiplier;
+			outline-color: rgb(1, 84, 250);
+		}
+	}
 }

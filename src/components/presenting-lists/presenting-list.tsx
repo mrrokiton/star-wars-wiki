@@ -16,9 +16,7 @@ export const PresentingList = ({ data, dataType }: PresentingListProps) => {
 			{sortedData.map((element) => {
 				const { name, pictureUrl, id } = element;
 				return (
-					<div className='presenting-list-element' key={id}>
-						<PresentingTile {...{ id, name, pictureUrl, dataType }} />
-					</div>
+					<PresentingTile {...{ id, name, pictureUrl, dataType }} key={id} />
 				);
 			})}
 		</div>

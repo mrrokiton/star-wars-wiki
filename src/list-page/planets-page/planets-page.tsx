@@ -9,7 +9,7 @@ export const PlanetsPage = observer(() => {
 
 	return (
 		<div className='list-page'>
-			<div className='list-page-title'>Planets list</div>
+			<div className='list-page-title'>PLANETS</div>
 			<PresentingList data={planets} dataType='planets' />
 		</div>
 	);

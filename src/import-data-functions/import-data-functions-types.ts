@@ -34,3 +34,7 @@ export type ObjectWithPlanetsResults = {
 	results: Array<RawPlanetData>;
 	next: string | null;
 };
+
+export type ObjectWithSpeciesResults = {
+	name: string;
+};

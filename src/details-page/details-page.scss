@@ -1,0 +1,48 @@
+@import '../assets/common-styles/common-styles.scss';
+
+$avatar-height-width: 400px;
+$padding-top: 100px;
+$name-font-size: 50px;
+$species-font-size: 30px;
+$big-margin: 20px;
+$small-margin: 10px;
+
+.details-page {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: $padding-top;
+	@include star-wars-font-style;
+
+	img {
+		@include avatar-border;
+		height: $avatar-height-width;
+		width: $avatar-height-width;
+	}
+
+	&-name {
+		font-size: $name-font-size;
+		margin: $big-margin 0;
+	}
+
+	&-single-item {
+		font-size: $species-font-size;
+		text-decoration: none;
+		@include star-wars-font-style;
+		margin-bottom: $small-margin;
+	}
+
+	&-listing {
+		font-size: $species-font-size;
+		@include star-wars-font-style;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		&-item {
+			@include star-wars-font-style;
+			margin: 0 $small-margin;
+		}
+	}
+}

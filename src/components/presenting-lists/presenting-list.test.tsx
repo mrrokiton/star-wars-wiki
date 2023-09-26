@@ -66,10 +66,10 @@ describe(PresentingList, () => {
 		const presentingTiles = container.getElementsByTagName('p');
 
 		expect(presentingTiles[0].textContent).toEqual(
-			`name: ${testCharactersDictionary['2'].name}`
+			testCharactersDictionary['2'].name
 		);
 		expect(presentingTiles[1].textContent).toEqual(
-			`name: ${testCharactersDictionary['1'].name}`
+			testCharactersDictionary['1'].name
 		);
 	});
 });
