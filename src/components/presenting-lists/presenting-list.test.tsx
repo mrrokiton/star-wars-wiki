@@ -5,7 +5,7 @@ import {
 	testCharactersDictionary,
 	testPlanetsDictionary,
 	testVehiclesDictionary,
-} from '../../testing-data/data-dictionaries';
+} from '../../mock-data/data-dictionaries';
 
 describe(PresentingList, () => {
 	it('should render list with 2 character elements', () => {

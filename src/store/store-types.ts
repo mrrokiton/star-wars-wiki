@@ -1,4 +1,5 @@
 export type PlanetData = {
+	id: string;
 	name: string;
 	population: number;
 	charactersConnectedId: Array<string>;
@@ -6,6 +7,7 @@ export type PlanetData = {
 };
 
 export type VehicleData = {
+	id: string;
 	name: string;
 	type: string;
 	charactersConnectedId: Array<string>;
@@ -13,6 +15,7 @@ export type VehicleData = {
 };
 
 export type CharacterData = {
+	id: string;
 	name: string;
 	pictureUrl: string;
 	planetId: string;
@@ -36,8 +39,10 @@ export type SpiecesDictionary = {
 	[id: string]: string;
 };
 
-export interface IStore {
-	isDownloading: boolean;
+export type DownloadingStatus = 'done' | 'downloading' | 'error';
+
+export interface StarWarsStore {
+	downloadingStatus: DownloadingStatus;
 
 	characters: CharactersDictionary;
 	vehicles: VehiclesDictionary;
@@ -46,5 +51,5 @@ export interface IStore {
 	addCharacter: (characterId: string, characterData: CharacterData) => void;
 	addPlanet: (planetId: string, planetData: PlanetData) => void;
 	addVehicle: (vehicleId: string, vehicleData: VehicleData) => void;
-	setIsDownloading: (isDownloading: boolean) => void;
+	setDownloadingStatus: (downloadingStatus: DownloadingStatus) => void;
 }

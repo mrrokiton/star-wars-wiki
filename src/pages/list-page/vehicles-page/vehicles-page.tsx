@@ -1,6 +1,6 @@
-import { store } from '../../store/store';
+import { store } from '../../../store/store';
 import { observer } from 'mobx-react';
-import { PresentingList } from '../../components/presenting-lists/presenting-list';
+import { PresentingList } from '../../../components/presenting-lists/presenting-list';
 
 import '../list-page.scss';
 

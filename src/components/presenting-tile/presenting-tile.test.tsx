@@ -1,14 +1,19 @@
 import { BrowserRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import { PresentingTile } from './presenting-tile';
-import { testDataCharacters } from '../../testing-data/data-arrays';
+import { testDataCharacters } from '../../mock-data/data-arrays';
 
 describe(PresentingTile, () => {
 	it('should render PresentingTile', () => {
 		const { name, pictureUrl } = testDataCharacters[0];
 		const id = '1';
 		const { container } = render(
-			<PresentingTile {...{ id, name, pictureUrl }} dataType='people' />,
+			<PresentingTile
+				id={id}
+				name={name}
+				pictureUrl={pictureUrl}
+				dataType='people'
+			/>,
 			{ wrapper: BrowserRouter }
 		);
 		const presentingTile = container.getElementsByClassName('presenting-tile');
@@ -20,7 +25,12 @@ describe(PresentingTile, () => {
 		const { name, pictureUrl } = testDataCharacters[0];
 		const id = '1';
 		const { container } = render(
-			<PresentingTile {...{ id, name, pictureUrl }} dataType='people' />,
+			<PresentingTile
+				id={id}
+				name={name}
+				pictureUrl={pictureUrl}
+				dataType='people'
+			/>,
 			{ wrapper: BrowserRouter }
 		);
 		const presentingTileName = container.getElementsByTagName('p');
@@ -36,7 +46,12 @@ describe(PresentingTile, () => {
 		const { name, pictureUrl } = testDataCharacters[0];
 		const id = '1';
 		const { container } = render(
-			<PresentingTile {...{ id, name, pictureUrl }} dataType='people' />,
+			<PresentingTile
+				id={id}
+				name={name}
+				pictureUrl={pictureUrl}
+				dataType='people'
+			/>,
 			{ wrapper: BrowserRouter }
 		);
 		const presentingTile = container.getElementsByTagName('a');

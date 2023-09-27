@@ -4,13 +4,14 @@ import {
 	PlanetsDictionary,
 	VehiclesDictionary,
 	CharacterData,
-	IStore,
+	StarWarsStore,
 	PlanetData,
 	VehicleData,
+	DownloadingStatus,
 } from './store-types';
 
-class Store implements IStore {
-	isDownloading = true;
+class Store implements StarWarsStore {
+	downloadingStatus: DownloadingStatus = 'downloading';
 
 	characters: CharactersDictionary = {};
 	vehicles: VehiclesDictionary = {};
@@ -18,19 +19,19 @@ class Store implements IStore {
 
 	constructor() {
 		makeObservable(this, {
-			isDownloading: observable,
+			downloadingStatus: observable,
 			characters: observable,
 			vehicles: observable,
 			planets: observable,
-			setIsDownloading: action,
+			setDownloadingStatus: action,
 			addCharacter: action,
 			addPlanet: action,
 			addVehicle: action,
 		});
 	}
 
-	setIsDownloading = (isDownloading: boolean) => {
-		this.isDownloading = isDownloading;
+	setDownloadingStatus = (isDownloading: DownloadingStatus) => {
+		this.downloadingStatus = isDownloading;
 	};
 
 	addCharacter = (characterId: string, characterData: CharacterData) => {

@@ -2,7 +2,7 @@ import {
 	testDataCharacters,
 	testDataPlanets,
 	testDataVehicles,
-} from '../testing-data/data-arrays';
+} from '../mock-data/data-arrays';
 import { store } from './store';
 
 describe('store', () => {

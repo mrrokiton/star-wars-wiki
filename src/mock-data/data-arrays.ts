@@ -2,6 +2,7 @@ import { CharacterData, PlanetData, VehicleData } from '../store/store-types';
 
 export const testDataCharacters: Array<CharacterData> = [
 	{
+		id: '1',
 		name: 'testName1',
 		pictureUrl: 'pictureUrl1',
 		planetId: 'planetId1',
@@ -9,6 +10,7 @@ export const testDataCharacters: Array<CharacterData> = [
 		speciesId: [],
 	},
 	{
+		id: '2',
 		name: 'AtestName2',
 		pictureUrl: 'pictureUrl2',
 		planetId: 'planetId2',
@@ -19,12 +21,14 @@ export const testDataCharacters: Array<CharacterData> = [
 
 export const testDataPlanets: Array<PlanetData> = [
 	{
+		id: '1',
 		name: 'testName1',
 		pictureUrl: 'pictureUrl1',
 		population: 111,
 		charactersConnectedId: [],
 	},
 	{
+		id: '2',
 		name: 'testName2',
 		pictureUrl: 'pictureUrl2',
 		population: 222,
@@ -34,12 +38,14 @@ export const testDataPlanets: Array<PlanetData> = [
 
 export const testDataVehicles: Array<VehicleData> = [
 	{
+		id: '1',
 		name: 'testName1',
 		pictureUrl: 'pictureUrl1',
 		charactersConnectedId: [],
 		type: 'type1',
 	},
 	{
+		id: '2',
 		name: 'testName2',
 		pictureUrl: 'pictureUrl2',
 		charactersConnectedId: ['1', '2'],

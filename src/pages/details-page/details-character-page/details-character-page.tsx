@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { observer } from 'mobx-react';
 import { Link, useParams } from 'react-router-dom';
-import { store } from '../../store/store';
-import { StarWarsImage } from '../../components/star-wars-image/star-wars-image';
-import { getSpeciesName } from '../../import-data-functions/import-data-functions';
+import { store } from '../../../store/store';
+import { StarWarsImage } from '../../../components/star-wars-image/star-wars-image';
+import { getSpeciesName } from '../../../utils/http/species-api';
+import { CharacterData } from '../../../store/store-types';
 
 import '../details-page.scss';
 
@@ -11,7 +12,7 @@ export const DetailsCharacterPage = observer(() => {
 	const params = useParams();
 	const id = params.id ?? '1';
 
-	const character = store.characters[id];
+	const character: CharacterData = store.characters[id];
 	const vehicles = store.vehicles;
 	const planets = store.planets;
 	const [speciesName, setSpeciesName] = useState('');
@@ -43,11 +44,11 @@ export const DetailsCharacterPage = observer(() => {
 				<div className='details-page-listing'>
 					Vehicles:
 					{character.vehiclesId.map(
-						(vehicleId, index) =>
+						(vehicleId) =>
 							vehicles[vehicleId] && (
 								<Link
 									to={`/vehicles/${vehicleId}`}
-									key={index}
+									key={vehicleId}
 									className='details-page-listing-item'
 								>
 									{vehicles[vehicleId].name}
