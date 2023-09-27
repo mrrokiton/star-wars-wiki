@@ -1,27 +1,37 @@
-# React + TypeScript + Vite
+# Star Wars Wiki
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is small Star Wars wikipedia application.
+Database for it is SWAPI.
 
-Currently, two official plugins are available:
+Project is currently loading slowly as it is downloading whole data. The point of this is to have data sorted as API doesn't support sorting.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Some of the data is missing such as planets and vehicles images due to lack of them in [Star Wars Visual Guide](https://starwars-visualguide.com/#/)
 
-## Expanding the ESLint configuration
+## Live demo
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+TBD
 
-- Configure the top-level `parserOptions` property like this:
+## Install
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+This project uses node and yarn. You should have them installed before installing project. To install project type:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+`yarn`
+
+## Usage
+
+To run this project type:
+
+`yarn start`
+
+## Todos
+
+- [ ] Introduce lazyloading in exchange for loss of sorting
+- [ ] Store images locally
+- [ ] Add cool animations
+- [ ] Improve coverage
+
+## Sources
+
+[SWAPI](https://swapi.dev/) - Data API
+
+[Star Wars Visual Guide](https://starwars-visualguide.com/#/) - Pictures
