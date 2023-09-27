@@ -11,6 +11,8 @@ Some of the data is missing such as planets and vehicles images due to lack of t
 
 [DEMO](https://mrrokiton.github.io/star-wars-wiki/)
 
+Due to Github Pages application will open on not found page, but then just press ```go home``` button
+
 ## Install
 
 This project uses node and yarn. You should have them installed before installing project. To install project type:
