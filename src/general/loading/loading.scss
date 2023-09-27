@@ -76,3 +76,21 @@ $border-radius: 16px;
 		}
 	}
 }
+
+@media (max-width: 400px) {
+	.loading-page {
+		&-container {
+			padding: $padding * $media-width-400-multiplier;
+			border-radius: $border-radius * $media-width-400-multiplier;
+
+			img {
+				height: $gif-height-width * $media-width-400-multiplier;
+				width: $gif-height-width * $media-width-400-multiplier;
+			}
+
+			p {
+				font-size: $font-size * $media-width-400-multiplier;
+			}
+		}
+	}
+}

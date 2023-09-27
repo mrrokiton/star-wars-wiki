@@ -1,6 +1,7 @@
 $star-wars-yellow: rgb(242, 187, 43);
 $media-width-1000-multiplier: 0.75;
 $media-width-700-multiplier: 0.4;
+$media-width-400-multiplier: 0.2;
 
 @mixin avatar-border($multiplier: 1) {
 	object-fit: fill;

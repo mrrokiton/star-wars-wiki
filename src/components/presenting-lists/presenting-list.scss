@@ -21,3 +21,9 @@ $padding-top: 30px;
 		padding-top: $padding-top * $media-width-700-multiplier;
 	}
 }
+
+@media (max-width: 400px) {
+	.presenting-list {
+		padding-top: $padding-top * $media-width-400-multiplier;
+	}
+}

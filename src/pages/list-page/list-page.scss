@@ -36,3 +36,13 @@ $letter-spacing: 15px;
 		}
 	}
 }
+
+@media (max-width: 400px) {
+	.list-page {
+		&-title {
+			letter-spacing: $letter-spacing * $media-width-400-multiplier;
+			font-size: $font-size * $media-width-400-multiplier;
+			height: $title-height * $media-width-400-multiplier;
+		}
+	}
+}

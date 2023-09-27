@@ -24,3 +24,10 @@ $margin-left: 300px;
 		margin-left: $margin-left * $media-width-700-multiplier;
 	}
 }
+
+@media (max-width: 400px) {
+	.main-page-container {
+		width: calc(100% - ($margin-left * $media-width-400-multiplier));
+		margin-left: $margin-left * $media-width-400-multiplier;
+	}
+}

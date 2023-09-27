@@ -4,7 +4,7 @@ $tile-width: 200px;
 $tile-height: 380px;
 $image-width-height: 200px;
 $font-size: 30px;
-
+$margin-top: 20px;
 $margin-x-size: 40px;
 
 $hover-multiplier: 1.1;
@@ -38,7 +38,7 @@ $hover-multiplier: 1.1;
 	&-name {
 		@include star-wars-font-style;
 		font-size: $font-size;
-		margin-top: 20px;
+		margin-top: $margin-top;
 		transition: 0.3s;
 	}
 
@@ -66,7 +66,7 @@ $hover-multiplier: 1.1;
 		width: $tile-width-media-1000;
 		height: $tile-height-media-1000;
 
-		margin: 0 $margin-x-size;
+		margin: 0 $margin-x-size * $media-width-1000-multiplier;
 
 		&-content {
 			width: $tile-width-media-1000;
@@ -81,6 +81,7 @@ $hover-multiplier: 1.1;
 
 		&-name {
 			font-size: $font-size * $media-width-1000-multiplier;
+			margin-top: $margin-top * $media-width-1000-multiplier;
 		}
 
 		&:hover {
@@ -107,7 +108,7 @@ $hover-multiplier: 1.1;
 		width: $tile-width-media-700;
 		height: $tile-height-media-700;
 
-		margin: 0 $margin-x-size;
+		margin: 0 $margin-x-size * $media-width-700-multiplier;
 
 		&-content {
 			width: $tile-width-media-700;
@@ -122,6 +123,7 @@ $hover-multiplier: 1.1;
 
 		&-name {
 			font-size: $font-size * $media-width-700-multiplier;
+			margin-top: $margin-top * $media-width-700-multiplier;
 		}
 
 		&:hover {
@@ -133,6 +135,48 @@ $hover-multiplier: 1.1;
 			.presenting-tile-image {
 				height: $image-width-height-media-700 * $hover-multiplier;
 				width: $image-width-height-media-700 * $hover-multiplier;
+			}
+		}
+	}
+}
+
+@media (max-width: 400px) {
+	$tile-width-media-400: $tile-width * $media-width-400-multiplier;
+	$tile-height-media-400: $tile-height * $media-width-400-multiplier;
+	$image-width-height-media-400: $image-width-height *
+		$media-width-400-multiplier;
+
+	.presenting-tile {
+		width: $tile-width-media-400;
+		height: $tile-height-media-400;
+
+		margin: 0 $margin-x-size * $media-width-400-multiplier;
+
+		&-content {
+			width: $tile-width-media-400;
+			height: $tile-height-media-400;
+		}
+
+		&-image {
+			@include avatar-border($media-width-400-multiplier);
+			height: $image-width-height-media-400;
+			width: $image-width-height-media-400;
+		}
+
+		&-name {
+			font-size: $font-size * $media-width-400-multiplier;
+			margin-top: $margin-top * $media-width-400-multiplier;
+		}
+
+		&:hover {
+			&-content {
+				width: $tile-width-media-400 * $hover-multiplier;
+				height: $tile-height-media-400 * $hover-multiplier;
+			}
+
+			.presenting-tile-image {
+				height: $image-width-height-media-400 * $hover-multiplier;
+				width: $image-width-height-media-400 * $hover-multiplier;
 			}
 		}
 	}
