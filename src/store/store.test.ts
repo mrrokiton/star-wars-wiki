@@ -7,16 +7,16 @@ import { store } from './store';
 
 describe('store', () => {
 	it('should be initialized with default values', () => {
-		expect(store.isDownloading).toEqual(true);
+		expect(store.downloadingStatus).toEqual('downloading');
 		expect(store.characters).toEqual({});
 		expect(store.vehicles).toEqual({});
 		expect(store.planets).toEqual({});
 	});
 
-	it('should change isDownloading', () => {
-		store.setIsDownloading(false);
+	it('should change downloadingStatus', () => {
+		store.setDownloadingStatus('done');
 
-		expect(store.isDownloading).toEqual(false);
+		expect(store.downloadingStatus).toEqual('done');
 	});
 
 	it('should add character to the store', () => {
