@@ -17,32 +17,24 @@ $letter-spacing: 15px;
 	}
 }
 
-@media (max-width: 1000px) {
+@mixin list-page-RWD($multiplier: 1) {
 	.list-page {
 		&-title {
-			letter-spacing: $letter-spacing * $media-width-1000-multiplier;
-			font-size: $font-size * $media-width-1000-multiplier;
-			height: $title-height * $media-width-1000-multiplier;
+			letter-spacing: $letter-spacing * $multiplier;
+			font-size: $font-size * $multiplier;
+			height: $title-height * $multiplier;
 		}
 	}
+}
+
+@media (max-width: 1000px) {
+	@include list-page-RWD($media-width-1000-multiplier);
 }
 
 @media (max-width: 700px) {
-	.list-page {
-		&-title {
-			letter-spacing: $letter-spacing * $media-width-700-multiplier;
-			font-size: $font-size * $media-width-700-multiplier;
-			height: $title-height * $media-width-700-multiplier;
-		}
-	}
+	@include list-page-RWD($media-width-700-multiplier);
 }
 
 @media (max-width: 400px) {
-	.list-page {
-		&-title {
-			letter-spacing: $letter-spacing * $media-width-400-multiplier;
-			font-size: $font-size * $media-width-400-multiplier;
-			height: $title-height * $media-width-400-multiplier;
-		}
-	}
+	@include list-page-RWD($media-width-400-multiplier);
 }

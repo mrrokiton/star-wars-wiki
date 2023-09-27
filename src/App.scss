@@ -11,23 +11,21 @@ $margin-left: 300px;
 	margin-left: $margin-left;
 }
 
-@media (max-width: 1000px) {
+@mixin main-page-container-RWD($multiplier: 1) {
 	.main-page-container {
-		width: calc(100% - ($margin-left * $media-width-1000-multiplier));
-		margin-left: $margin-left * $media-width-1000-multiplier;
+		width: calc(100% - ($margin-left * $multiplier));
+		margin-left: $margin-left * $multiplier;
 	}
+}
+
+@media (max-width: 1000px) {
+	@include main-page-container-RWD($multiplier: $media-width-1000-multiplier);
 }
 
 @media (max-width: 700px) {
-	.main-page-container {
-		width: calc(100% - ($margin-left * $media-width-700-multiplier));
-		margin-left: $margin-left * $media-width-700-multiplier;
-	}
+	@include main-page-container-RWD($multiplier: $media-width-700-multiplier);
 }
 
 @media (max-width: 400px) {
-	.main-page-container {
-		width: calc(100% - ($margin-left * $media-width-400-multiplier));
-		margin-left: $margin-left * $media-width-400-multiplier;
-	}
+	@include main-page-container-RWD($multiplier: $media-width-400-multiplier);
 }

@@ -51,65 +51,34 @@ $item-padding-y: 15px;
 	}
 }
 
-@media (max-width: 1000px) {
+@mixin navigation-bar-RWD($multiplier: 1) {
 	.navigation-bar {
-		width: $navigation-bar-width * $media-width-1000-multiplier;
+		width: $navigation-bar-width * $multiplier;
 
 		&-header {
-			font-size: $header-font-size * $media-width-1000-multiplier;
+			font-size: $header-font-size * $multiplier;
 		}
 
 		&-items {
-			gap: $gap-size * $media-width-1000-multiplier;
-			padding-left: $padding-left * $media-width-1000-multiplier;
+			gap: $gap-size * $multiplier;
+			padding-left: $padding-left * $multiplier;
 		}
 
 		a {
-			font-size: $item-font-size * $media-width-1000-multiplier;
-			padding: $item-padding-y * $media-width-1000-multiplier $padding-left *
-				$media-width-1000-multiplier;
+			font-size: $item-font-size * $multiplier;
+			padding: $item-padding-y * $multiplier $padding-left * $multiplier;
 		}
 	}
+}
+
+@media (max-width: 1000px) {
+	@include navigation-bar-RWD($media-width-1000-multiplier);
 }
 
 @media (max-width: 700px) {
-	.navigation-bar {
-		width: $navigation-bar-width * $media-width-700-multiplier;
-
-		&-header {
-			font-size: $header-font-size * $media-width-700-multiplier;
-		}
-
-		&-items {
-			gap: $gap-size * $media-width-700-multiplier;
-			padding-left: $padding-left * $media-width-700-multiplier;
-		}
-
-		a {
-			font-size: $item-font-size * $media-width-700-multiplier;
-			padding: $item-padding-y * $media-width-700-multiplier $padding-left *
-				$media-width-700-multiplier;
-		}
-	}
+	@include navigation-bar-RWD($media-width-700-multiplier);
 }
 
 @media (max-width: 400px) {
-	.navigation-bar {
-		width: $navigation-bar-width * $media-width-400-multiplier;
-
-		&-header {
-			font-size: $header-font-size * $media-width-400-multiplier;
-		}
-
-		&-items {
-			gap: $gap-size * $media-width-400-multiplier;
-			padding-left: $padding-left * $media-width-400-multiplier;
-		}
-
-		a {
-			font-size: $item-font-size * $media-width-400-multiplier;
-			padding: $item-padding-y * $media-width-400-multiplier $padding-left *
-				$media-width-400-multiplier;
-		}
-	}
+	@include navigation-bar-RWD($media-width-400-multiplier);
 }

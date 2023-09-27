@@ -56,17 +56,16 @@ $hover-multiplier: 1.1;
 	}
 }
 
-@media (max-width: 1000px) {
-	$tile-width-media-1000: $tile-width * $media-width-1000-multiplier;
-	$tile-height-media-1000: $tile-height * $media-width-1000-multiplier;
-	$image-width-height-media-1000: $image-width-height *
-		$media-width-1000-multiplier;
+@mixin presenting-tile-RWD($multiplier: 1) {
+	$tile-width-media-1000: $tile-width * $multiplier;
+	$tile-height-media-1000: $tile-height * $multiplier;
+	$image-width-height-media-1000: $image-width-height * $multiplier;
 
 	.presenting-tile {
 		width: $tile-width-media-1000;
 		height: $tile-height-media-1000;
 
-		margin: 0 $margin-x-size * $media-width-1000-multiplier;
+		margin: 0 $margin-x-size * $multiplier;
 
 		&-content {
 			width: $tile-width-media-1000;
@@ -74,14 +73,14 @@ $hover-multiplier: 1.1;
 		}
 
 		&-image {
-			@include avatar-border($media-width-1000-multiplier);
+			@include avatar-border($multiplier);
 			height: $image-width-height-media-1000;
 			width: $image-width-height-media-1000;
 		}
 
 		&-name {
-			font-size: $font-size * $media-width-1000-multiplier;
-			margin-top: $margin-top * $media-width-1000-multiplier;
+			font-size: $font-size * $multiplier;
+			margin-top: $margin-top * $multiplier;
 		}
 
 		&:hover {
@@ -98,86 +97,14 @@ $hover-multiplier: 1.1;
 	}
 }
 
+@media (max-width: 1000px) {
+	@include presenting-tile-RWD($media-width-1000-multiplier);
+}
+
 @media (max-width: 700px) {
-	$tile-width-media-700: $tile-width * $media-width-700-multiplier;
-	$tile-height-media-700: $tile-height * $media-width-700-multiplier;
-	$image-width-height-media-700: $image-width-height *
-		$media-width-700-multiplier;
-
-	.presenting-tile {
-		width: $tile-width-media-700;
-		height: $tile-height-media-700;
-
-		margin: 0 $margin-x-size * $media-width-700-multiplier;
-
-		&-content {
-			width: $tile-width-media-700;
-			height: $tile-height-media-700;
-		}
-
-		&-image {
-			@include avatar-border($media-width-700-multiplier);
-			height: $image-width-height-media-700;
-			width: $image-width-height-media-700;
-		}
-
-		&-name {
-			font-size: $font-size * $media-width-700-multiplier;
-			margin-top: $margin-top * $media-width-700-multiplier;
-		}
-
-		&:hover {
-			&-content {
-				width: $tile-width-media-700 * $hover-multiplier;
-				height: $tile-height-media-700 * $hover-multiplier;
-			}
-
-			.presenting-tile-image {
-				height: $image-width-height-media-700 * $hover-multiplier;
-				width: $image-width-height-media-700 * $hover-multiplier;
-			}
-		}
-	}
+	@include presenting-tile-RWD($media-width-700-multiplier);
 }
 
 @media (max-width: 400px) {
-	$tile-width-media-400: $tile-width * $media-width-400-multiplier;
-	$tile-height-media-400: $tile-height * $media-width-400-multiplier;
-	$image-width-height-media-400: $image-width-height *
-		$media-width-400-multiplier;
-
-	.presenting-tile {
-		width: $tile-width-media-400;
-		height: $tile-height-media-400;
-
-		margin: 0 $margin-x-size * $media-width-400-multiplier;
-
-		&-content {
-			width: $tile-width-media-400;
-			height: $tile-height-media-400;
-		}
-
-		&-image {
-			@include avatar-border($media-width-400-multiplier);
-			height: $image-width-height-media-400;
-			width: $image-width-height-media-400;
-		}
-
-		&-name {
-			font-size: $font-size * $media-width-400-multiplier;
-			margin-top: $margin-top * $media-width-400-multiplier;
-		}
-
-		&:hover {
-			&-content {
-				width: $tile-width-media-400 * $hover-multiplier;
-				height: $tile-height-media-400 * $hover-multiplier;
-			}
-
-			.presenting-tile-image {
-				height: $image-width-height-media-400 * $hover-multiplier;
-				width: $image-width-height-media-400 * $hover-multiplier;
-			}
-		}
-	}
+	@include presenting-tile-RWD($media-width-400-multiplier);
 }
