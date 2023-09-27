@@ -1,7 +1,23 @@
+@import '../../assets/common-styles/common-styles.scss';
+
+$padding-top: 30px;
+
 .presenting-list {
 	width: 100%;
-	padding-top: 30px;
+	padding-top: $padding-top;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
+}
+
+@media (max-width: 1000px) {
+	.presenting-list {
+		padding-top: $padding-top * $media-width-1000-multiplier;
+	}
+}
+
+@media (max-width: 700px) {
+	.presenting-list {
+		padding-top: $padding-top * $media-width-700-multiplier;
+	}
 }

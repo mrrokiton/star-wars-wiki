@@ -5,12 +5,16 @@ import { store } from '../../../store/store';
 import { StarWarsImage } from '../../../components/star-wars-image/star-wars-image';
 import { getSpeciesName } from '../../../utils/http/species-api';
 import { CharacterData } from '../../../store/store-types';
+import { NotFound } from '../../../general/not-found/not-found';
 
 import '../details-page.scss';
 
 export const DetailsCharacterPage = observer(() => {
-	const params = useParams();
-	const id = params.id ?? '1';
+	const { id } = useParams();
+
+	if (!id) {
+		return <NotFound />;
+	}
 
 	const character: CharacterData = store.characters[id];
 	const vehicles = store.vehicles;

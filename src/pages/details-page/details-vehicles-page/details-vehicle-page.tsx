@@ -2,12 +2,16 @@ import { observer } from 'mobx-react';
 import { Link, useParams } from 'react-router-dom';
 import { store } from '../../../store/store';
 import { StarWarsImage } from '../../../components/star-wars-image/star-wars-image';
+import { NotFound } from '../../../general/not-found/not-found';
 
 import '../details-page.scss';
 
 export const DetailsVehiclePage = observer(() => {
-	const params = useParams();
-	const id = params.id ?? '1';
+	const { id } = useParams();
+
+	if (!id) {
+		return <NotFound />;
+	}
 
 	const vehicle = store.vehicles[id];
 	const characters = store.characters;

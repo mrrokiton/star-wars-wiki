@@ -16,3 +16,23 @@ $letter-spacing: 15px;
 		height: $title-height;
 	}
 }
+
+@media (max-width: 1000px) {
+	.list-page {
+		&-title {
+			letter-spacing: $letter-spacing * $media-width-1000-multiplier;
+			font-size: $font-size * $media-width-1000-multiplier;
+			height: $title-height * $media-width-1000-multiplier;
+		}
+	}
+}
+
+@media (max-width: 700px) {
+	.list-page {
+		&-title {
+			letter-spacing: $letter-spacing * $media-width-700-multiplier;
+			font-size: $font-size * $media-width-700-multiplier;
+			height: $title-height * $media-width-700-multiplier;
+		}
+	}
+}

@@ -9,9 +9,6 @@ $margin-x-size: 40px;
 
 $hover-multiplier: 1.1;
 
-@media (max-width: 1200px) {
-}
-
 .presenting-tile {
 	width: $tile-width;
 	height: $tile-height;
@@ -55,6 +52,88 @@ $hover-multiplier: 1.1;
 			height: $image-width-height * $hover-multiplier;
 			width: $image-width-height * $hover-multiplier;
 			outline-color: rgb(1, 84, 250);
+		}
+	}
+}
+
+@media (max-width: 1000px) {
+	$tile-width-media-1000: $tile-width * $media-width-1000-multiplier;
+	$tile-height-media-1000: $tile-height * $media-width-1000-multiplier;
+	$image-width-height-media-1000: $image-width-height *
+		$media-width-1000-multiplier;
+
+	.presenting-tile {
+		width: $tile-width-media-1000;
+		height: $tile-height-media-1000;
+
+		margin: 0 $margin-x-size;
+
+		&-content {
+			width: $tile-width-media-1000;
+			height: $tile-height-media-1000;
+		}
+
+		&-image {
+			@include avatar-border($media-width-1000-multiplier);
+			height: $image-width-height-media-1000;
+			width: $image-width-height-media-1000;
+		}
+
+		&-name {
+			font-size: $font-size * $media-width-1000-multiplier;
+		}
+
+		&:hover {
+			&-content {
+				width: $tile-width-media-1000 * $hover-multiplier;
+				height: $tile-height-media-1000 * $hover-multiplier;
+			}
+
+			.presenting-tile-image {
+				height: $image-width-height-media-1000 * $hover-multiplier;
+				width: $image-width-height-media-1000 * $hover-multiplier;
+			}
+		}
+	}
+}
+
+@media (max-width: 700px) {
+	$tile-width-media-700: $tile-width * $media-width-700-multiplier;
+	$tile-height-media-700: $tile-height * $media-width-700-multiplier;
+	$image-width-height-media-700: $image-width-height *
+		$media-width-700-multiplier;
+
+	.presenting-tile {
+		width: $tile-width-media-700;
+		height: $tile-height-media-700;
+
+		margin: 0 $margin-x-size;
+
+		&-content {
+			width: $tile-width-media-700;
+			height: $tile-height-media-700;
+		}
+
+		&-image {
+			@include avatar-border($media-width-700-multiplier);
+			height: $image-width-height-media-700;
+			width: $image-width-height-media-700;
+		}
+
+		&-name {
+			font-size: $font-size * $media-width-700-multiplier;
+		}
+
+		&:hover {
+			&-content {
+				width: $tile-width-media-700 * $hover-multiplier;
+				height: $tile-height-media-700 * $hover-multiplier;
+			}
+
+			.presenting-tile-image {
+				height: $image-width-height-media-700 * $hover-multiplier;
+				width: $image-width-height-media-700 * $hover-multiplier;
+			}
 		}
 	}
 }
