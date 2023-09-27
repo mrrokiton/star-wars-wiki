@@ -9,7 +9,7 @@ Some of the data is missing such as planets and vehicles images due to lack of t
 
 ## Live demo
 
-TBD
+[DEMO](https://mrrokiton.github.io/star-wars-wiki/)
 
 ## Install
 
