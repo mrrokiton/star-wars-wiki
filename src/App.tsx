@@ -10,7 +10,6 @@ import './App.scss';
 
 const App = observer(() => {
 	useEffect(() => {
-		console.log('DUPA');
 		getStarWarsData(store);
 	}, []);
 

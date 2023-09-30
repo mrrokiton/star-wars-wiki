@@ -7,14 +7,10 @@ import {
 } from '../../store/store-types';
 
 import './presenting-list.scss';
-import { store } from '../../store/store';
 
 export const PresentingList = ({ data, dataType }: PresentingListProps) => {
-	console.log(store.characters);
 	const sortedData: CharacterData[] | VehicleData[] | PlanetData[] =
 		Object.values(data).sort((a, b) => (a.name > b.name ? 1 : -1));
-
-	console.log(sortedData);
 
 	return (
 		<div className='presenting-list'>
