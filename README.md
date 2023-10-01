@@ -3,6 +3,8 @@
 This project is small Star Wars wikipedia application.
 Database for it is SWAPI.
 
+**!!! Better version of the project, but without sorting functionality is in branch ```lazy-load-api```, please investigate that version. !!!**
+
 Project is currently loading slowly as it is downloading whole data. The point of this is to have data sorted as API doesn't support sorting.
 
 Some of the data is missing such as planets and vehicles images due to lack of them in [Star Wars Visual Guide](https://starwars-visualguide.com/#/)
@@ -27,7 +29,7 @@ To run this project type:
 
 ## Todos
 
-- [ ] Introduce lazyloading in exchange for loss of sorting
+- [x] Introduce lazyloading in exchange for loss of sorting
 - [ ] Store images locally
 - [ ] Add cool animations
 - [ ] Improve coverage
