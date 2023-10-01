@@ -39,7 +39,5 @@ export const processItemData = (
 		pictureUrl: generatePictureUrl(id, fixedDataType),
 	};
 
-	console.log(itemData.pictureUrl);
-
 	return itemData;
 };

@@ -23,8 +23,6 @@ export const DetailsCharacterPage = () => {
 		fetchCharacterData(id, setCharacter, setIsLoading, setError);
 	}, []);
 
-	console.log(isLoading, !isLoading && character);
-
 	if (error || isLoading) {
 		return <Loading error={error} />;
 	}

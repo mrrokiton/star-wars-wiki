@@ -40,7 +40,6 @@ export const BasicListPage = ({ dataType }: ListPageProps) => {
 			setIsEnd,
 			setError
 		);
-		console.log(items);
 	};
 
 	const fillPageWithData = () => {

@@ -23,8 +23,6 @@ export const DetailsPlanetPage = () => {
 		fetchPlanetData(id, setPlanet, setIsLoading, setError);
 	}, []);
 
-	console.log(isLoading, !isLoading && planet);
-
 	if (error || isLoading) {
 		return <Loading error={error} />;
 	}

@@ -23,8 +23,6 @@ export const DetailsVehiclePage = () => {
 		fetchVehicleData(id, setVehicle, setIsLoading, setError);
 	}, []);
 
-	console.log(isLoading, !isLoading && vehicle);
-
 	if (error || isLoading) {
 		return <Loading error={error} />;
 	}
