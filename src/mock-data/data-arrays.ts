@@ -1,4 +1,9 @@
-import { ItemData, PlanetIdData, VehicleIdData } from '../utils/utils-types';
+import {
+	CharacterIdData,
+	ItemData,
+	PlanetIdData,
+	VehicleIdData,
+} from '../utils/utils-types';
 
 export const testDataItems: ItemData[] = [
 	{
@@ -10,6 +15,25 @@ export const testDataItems: ItemData[] = [
 		id: '2',
 		name: 'AtestName2',
 		pictureUrl: 'pictureUrl2',
+	},
+];
+
+export const testDataCharacters: Array<CharacterIdData> = [
+	{
+		id: '1',
+		name: 'testName1',
+		pictureUrl: 'pictureUrl1',
+		speciesId: ['1'],
+		planetId: '1',
+		vehiclesId: ['1', '2'],
+	},
+	{
+		id: '2',
+		name: 'testName2',
+		pictureUrl: 'pictureUrl2',
+		speciesId: ['1'],
+		planetId: '1',
+		vehiclesId: ['1', '2'],
 	},
 ];
 
