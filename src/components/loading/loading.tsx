@@ -1,8 +1,9 @@
 import loadingGif from '../../assets/gifs/loading.gif';
+import { StarWarsError } from '../../utils/utils-types';
 
 import './loading.scss';
 
-export const Loading = ({ error }: { error: any }) => {
+export const Loading = ({ error }: { error: StarWarsError | null }) => {
 	const messageLoading = (
 		<>
 			<img src={loadingGif} alt='loading gif' />

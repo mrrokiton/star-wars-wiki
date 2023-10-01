@@ -1,3 +1,7 @@
+export type StarWarsError = {
+	message: string;
+};
+
 export type RawCharacterData = {
 	url: string;
 	name: string;

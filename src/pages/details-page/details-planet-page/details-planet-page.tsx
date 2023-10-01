@@ -3,7 +3,7 @@ import { StarWarsImage } from '../../../components/star-wars-image/star-wars-ima
 import { NotFound } from '../../../general/not-found/not-found';
 import { useEffect, useState } from 'react';
 import { fetchPlanetData } from '../../../utils/http/planet-api';
-import { PlanetData } from '../../../utils/utils-types';
+import { PlanetData, StarWarsError } from '../../../utils/utils-types';
 import { Loading } from '../../../components/loading/loading';
 
 import '../details-page.scss';
@@ -16,7 +16,7 @@ export const DetailsPlanetPage = () => {
 	}
 
 	const [isLoading, setIsLoading] = useState<boolean>(true);
-	const [error, setError] = useState<any>(null);
+	const [error, setError] = useState<StarWarsError | null>(null);
 	const [planet, setPlanet] = useState<PlanetData>();
 
 	useEffect(() => {

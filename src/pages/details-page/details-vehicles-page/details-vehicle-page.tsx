@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { StarWarsImage } from '../../../components/star-wars-image/star-wars-image';
 import { NotFound } from '../../../general/not-found/not-found';
-import { VehicleData } from '../../../utils/utils-types';
+import { StarWarsError, VehicleData } from '../../../utils/utils-types';
 import { fetchVehicleData } from '../../../utils/http/vehicle-api';
 import { Loading } from '../../../components/loading/loading';
 
@@ -16,7 +16,7 @@ export const DetailsVehiclePage = () => {
 	}
 
 	const [isLoading, setIsLoading] = useState<boolean>(true);
-	const [error, setError] = useState<any>(null);
+	const [error, setError] = useState<StarWarsError | null>(null);
 	const [vehicle, setVehicle] = useState<VehicleData>();
 
 	useEffect(() => {

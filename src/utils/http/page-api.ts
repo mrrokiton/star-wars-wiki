@@ -1,4 +1,4 @@
-import { ItemData, RawItemData } from '../utils-types';
+import { ItemData, RawItemData, StarWarsError } from '../utils-types';
 import { processItemData } from '../helpers/page-api-helper';
 
 export const fetchData = async (
@@ -8,7 +8,7 @@ export const fetchData = async (
 	setItems: React.Dispatch<React.SetStateAction<ItemData[]>>,
 	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
 	setIsEnd: React.Dispatch<React.SetStateAction<boolean>>,
-	setError: React.Dispatch<any>
+	setError: React.Dispatch<StarWarsError | null>
 ) => {
 	setIsLoading(true);
 	setError(null);
@@ -30,7 +30,7 @@ export const fetchData = async (
 		setPage((previousPage) => previousPage + 1);
 	} catch (error) {
 		setIsLoading(false);
-		setError(error);
+		setError(error as StarWarsError);
 	} finally {
 		setIsLoading(false);
 	}

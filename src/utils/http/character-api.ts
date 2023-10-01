@@ -6,13 +6,13 @@ import {
 } from '../helpers/prefixes';
 import { processCharacterData } from '../helpers/character-helpers';
 import { fetchName } from './names-api';
-import { CharacterData, basicDictionary } from '../utils-types';
+import { CharacterData, StarWarsError, basicDictionary } from '../utils-types';
 
 export const fetchCharacterData = async (
 	id: string,
 	setCharacter: React.Dispatch<CharacterData>,
 	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
-	setError: React.Dispatch<any>
+	setError: React.Dispatch<StarWarsError | null>
 ) => {
 	setIsLoading(true);
 	setError(null);
@@ -52,7 +52,7 @@ export const fetchCharacterData = async (
 		setCharacter(character);
 	} catch (error) {
 		setIsLoading(false);
-		setError(error);
+		setError(error as StarWarsError);
 	} finally {
 		setIsLoading(false);
 	}

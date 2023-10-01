@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { StarWarsImage } from '../../../components/star-wars-image/star-wars-image';
 import { NotFound } from '../../../general/not-found/not-found';
 import { fetchCharacterData } from '../../../utils/http/character-api';
-import { CharacterData } from '../../../utils/utils-types';
+import { CharacterData, StarWarsError } from '../../../utils/utils-types';
 import { Loading } from '../../../components/loading/loading';
 
 import '../details-page.scss';
@@ -16,7 +16,7 @@ export const DetailsCharacterPage = () => {
 	}
 
 	const [isLoading, setIsLoading] = useState<boolean>(true);
-	const [error, setError] = useState<any>(null);
+	const [error, setError] = useState<StarWarsError | null>(null);
 	const [character, setCharacter] = useState<CharacterData>();
 
 	useEffect(() => {

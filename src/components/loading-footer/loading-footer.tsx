@@ -1,3 +1,4 @@
+import { StarWarsError } from '../../utils/utils-types';
 import './loading-footer.scss';
 
 export const LoadingFooter = ({
@@ -5,13 +6,13 @@ export const LoadingFooter = ({
 	error,
 }: {
 	isLoading: boolean;
-	error: any;
+	error: StarWarsError | null;
 }) => {
 	const footerContent = () => {
 		const errorContent = (
 			<>
 				<p>Error, please refresh page</p>
-				<p>{error}</p>
+				<p>{error && error.message}</p>
 			</>
 		);
 		const loadingContent = <p>Loading more data...</p>;

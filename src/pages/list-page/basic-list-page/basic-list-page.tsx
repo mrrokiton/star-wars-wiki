@@ -2,7 +2,7 @@ import { PresentingList } from '../../../components/presenting-lists/presenting-
 import { useEffect, useState } from 'react';
 import { fetchData } from '../../../utils/http/page-api';
 import { ListPageProps } from './basic-list-page-types';
-import { ItemData } from '../../../utils/utils-types';
+import { ItemData, StarWarsError } from '../../../utils/utils-types';
 
 import '../list-page.scss';
 
@@ -13,7 +13,7 @@ export const BasicListPage = ({ dataType }: ListPageProps) => {
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [isEnd, setIsEnd] = useState<boolean>(false);
 	const [isPageFull, setIsPageFull] = useState<boolean>(false);
-	const [error, setError] = useState<any>(null);
+	const [error, setError] = useState<StarWarsError | null>(null);
 	const [page, setPage] = useState(1);
 
 	const getHeader = () => {

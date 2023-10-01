@@ -1,13 +1,13 @@
 import { peopleUrlPrefix, vehiclesUrlPrefix } from '../helpers/prefixes';
 import { fetchName } from './names-api';
-import { VehicleData, basicDictionary } from '../utils-types';
+import { StarWarsError, VehicleData, basicDictionary } from '../utils-types';
 import { processVehicleData } from '../helpers/vehicle-helpers';
 
 export const fetchVehicleData = async (
 	id: string,
 	setVehicle: React.Dispatch<VehicleData>,
 	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
-	setError: React.Dispatch<any>
+	setError: React.Dispatch<StarWarsError | null>
 ) => {
 	setIsLoading(true);
 	setError(null);
@@ -40,7 +40,7 @@ export const fetchVehicleData = async (
 		setVehicle(vehicle);
 	} catch (error) {
 		setIsLoading(false);
-		setError(error);
+		setError(error as StarWarsError);
 	} finally {
 		setIsLoading(false);
 	}

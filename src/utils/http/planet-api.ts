@@ -1,13 +1,13 @@
 import { peopleUrlPrefix, planetsUrlPrefix } from '../helpers/prefixes';
 import { fetchName } from './names-api';
-import { PlanetData, basicDictionary } from '../utils-types';
+import { PlanetData, StarWarsError, basicDictionary } from '../utils-types';
 import { processPlanetData } from '../helpers/planet-helpers';
 
 export const fetchPlanetData = async (
 	id: string,
 	setPlanet: React.Dispatch<PlanetData>,
 	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
-	setError: React.Dispatch<any>
+	setError: React.Dispatch<StarWarsError | null>
 ) => {
 	setIsLoading(true);
 	setError(null);
@@ -40,7 +40,7 @@ export const fetchPlanetData = async (
 		setPlanet(planet);
 	} catch (error) {
 		setIsLoading(false);
-		setError(error);
+		setError(error as StarWarsError);
 	} finally {
 		setIsLoading(false);
 	}
