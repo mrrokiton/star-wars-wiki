@@ -1,5 +1,4 @@
-import { VehicleData } from '../../store/store-types';
-import { RawVehicleData } from '../utils-types';
+import { RawVehicleData, VehicleIdData } from '../utils-types';
 import {
 	peopleUrlPrefix,
 	starWarsVisualGuideImgsUrl,
@@ -11,7 +10,7 @@ const generateVehiclesPictureUrl = (id: string) =>
 
 export const processVehicleData = (
 	rawVehicleData: RawVehicleData
-): VehicleData => {
+): VehicleIdData => {
 	const { url, name, vehicle_class, pilots } = rawVehicleData;
 
 	const vehicleId = url.replace(vehiclesUrlPrefix, '').replace('/', '');
@@ -22,7 +21,7 @@ export const processVehicleData = (
 		)
 	);
 
-	const vehicleData: VehicleData = {
+	const vehicleData: VehicleIdData = {
 		id: vehicleId,
 		name,
 		type: vehicle_class,

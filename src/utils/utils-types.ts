@@ -20,21 +20,72 @@ export type RawPlanetData = {
 	residents: Array<string>;
 };
 
-export type ObjectWithCharactersResults = {
-	results: Array<RawCharacterData>;
-	next: string | null;
-};
-
-export type ObjectWithVehiclerResults = {
-	results: Array<RawVehicleData>;
-	next: string | null;
-};
-
-export type ObjectWithPlanetsResults = {
-	results: Array<RawPlanetData>;
-	next: string | null;
-};
-
-export type ObjectWithSpeciesResults = {
+export type RawItemData = {
+	url: string;
 	name: string;
 };
+
+export type ItemData = {
+	id: string;
+	name: string;
+	pictureUrl: string;
+};
+
+export type PlanetIdData = {
+	id: string;
+	name: string;
+	pictureUrl: string;
+	population: number;
+	charactersConnectedId: Array<string>;
+};
+
+export type VehicleIdData = {
+	id: string;
+	name: string;
+	type: string;
+	charactersConnectedId: Array<string>;
+	pictureUrl: string;
+};
+
+export type CharacterIdData = {
+	id: string;
+	name: string;
+	pictureUrl: string;
+	planetId: string;
+	vehiclesId: Array<string>;
+	speciesId: Array<string>;
+};
+
+export type CharacterData = {
+	id: string;
+	name: string;
+	pictureUrl: string;
+	planetId: string;
+	vehiclesId: Array<string>;
+	speciesId: Array<string>;
+	speciesName: string;
+	vehiclesNames: basicDictionary;
+	planetName: string;
+};
+
+export type PlanetData = {
+	id: string;
+	name: string;
+	pictureUrl: string;
+	population: number;
+	charactersConnectedId: Array<string>;
+	charactersConnectedNames: basicDictionary;
+};
+
+export type VehicleData = {
+	id: string;
+	name: string;
+	pictureUrl: string;
+	type: string;
+	charactersConnectedId: Array<string>;
+	charactersConnectedNames: basicDictionary;
+};
+
+export type basicDictionary = { [id: string]: string };
+
+//TODO: UNION

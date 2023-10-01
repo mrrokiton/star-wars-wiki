@@ -1,5 +1,4 @@
-import { PlanetData } from '../../store/store-types';
-import { RawPlanetData } from '../utils-types';
+import { PlanetIdData, RawPlanetData } from '../utils-types';
 import {
 	peopleUrlPrefix,
 	planetsUrlPrefix,
@@ -9,7 +8,9 @@ import {
 const generatePlanetsPictureUrl = (id: string) =>
 	`${starWarsVisualGuideImgsUrl}planets/${id}.jpg`;
 
-export const processPlanetData = (rawPlanetData: RawPlanetData): PlanetData => {
+export const processPlanetData = (
+	rawPlanetData: RawPlanetData
+): PlanetIdData => {
 	const { url, name, population, residents } = rawPlanetData;
 
 	const planetId = url.replace(planetsUrlPrefix, '').replace('/', '');
@@ -20,7 +21,7 @@ export const processPlanetData = (rawPlanetData: RawPlanetData): PlanetData => {
 		)
 	);
 
-	const planetData: PlanetData = {
+	const planetData: PlanetIdData = {
 		id: planetId,
 		name,
 		population: Number(population),

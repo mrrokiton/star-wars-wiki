@@ -1,4 +1,4 @@
-import { RawCharacterData } from '../utils-types';
+import { RawCharacterData, CharacterIdData } from '../utils-types';
 import {
 	peopleUrlPrefix,
 	planetsUrlPrefix,
@@ -6,14 +6,13 @@ import {
 	starWarsVisualGuideImgsUrl,
 	vehiclesUrlPrefix,
 } from './prefixes';
-import { CharacterData } from '../../store/store-types';
 
 const generatePeoplePictureUrl = (id: string) =>
 	`${starWarsVisualGuideImgsUrl}characters/${id}.jpg`;
 
 export const processCharacterData = (
 	rawCharacterData: RawCharacterData
-): CharacterData => {
+): CharacterIdData => {
 	const { url, name, homeworld, vehicles, species } = rawCharacterData;
 
 	const characterId = url.replace(peopleUrlPrefix, '').replace('/', '');
@@ -28,7 +27,7 @@ export const processCharacterData = (
 		speciesId.push(species.replace(speciesUrlPrefix, '').replace('/', ''))
 	);
 
-	const characterData: CharacterData = {
+	const characterData: CharacterIdData = {
 		id: characterId,
 		name,
 		planetId,

@@ -1,42 +1,60 @@
-import { observer } from 'mobx-react';
 import { Link, useParams } from 'react-router-dom';
-import { store } from '../../../store/store';
 import { StarWarsImage } from '../../../components/star-wars-image/star-wars-image';
 import { NotFound } from '../../../general/not-found/not-found';
+import { useEffect, useState } from 'react';
+import { fetchPlanetData } from '../../../utils/http/planet-api';
+import { PlanetData } from '../../../utils/utils-types';
+import { Loading } from '../../../components/loading/loading';
 
 import '../details-page.scss';
 
-export const DetailsPlanetPage = observer(() => {
+export const DetailsPlanetPage = () => {
 	const { id } = useParams();
 
 	if (!id) {
 		return <NotFound />;
 	}
 
-	const planet = store.planets[id];
-	const characters = store.characters;
+	const [isLoading, setIsLoading] = useState<boolean>(true);
+	const [error, setError] = useState<any>(null);
+	const [planet, setPlanet] = useState<PlanetData>();
+
+	useEffect(() => {
+		fetchPlanetData(id, setPlanet, setIsLoading, setError);
+	}, []);
+
+	console.log(isLoading, !isLoading && planet);
+
+	if (error || isLoading) {
+		return <Loading error={error} />;
+	}
 
 	return (
-		<div className='details-page'>
-			<StarWarsImage pictureUrl={planet.pictureUrl} />
-			<p className='details-page-name'>{planet.name}</p>
-			<p className='details-page-single-item'>{`Population: ${
-				planet.population.toString() === 'NaN' ? 'Unknown' : planet.population
-			}`}</p>
-			{planet.charactersConnectedId.length > 0 && (
-				<div className='details-page-listing'>
-					People: <br />
-					{planet.charactersConnectedId.map((characterConnectedId) => (
-						<Link
-							className='details-page-listing-item'
-							to={`/people/${characterConnectedId}`}
-							key={characterConnectedId}
-						>
-							{characters[characterConnectedId].name}
-						</Link>
-					))}
-				</div>
-			)}
-		</div>
+		planet && (
+			<div className='details-page'>
+				<StarWarsImage pictureUrl={planet.pictureUrl} />
+				<p className='details-page-name'>{planet.name}</p>
+				<p className='details-page-single-item'>{`Population: ${
+					planet.population.toString() === 'NaN' ? 'Unknown' : planet.population
+				}`}</p>
+				{planet.charactersConnectedId.length > 0 && (
+					<div className='details-page-listing'>
+						People: <br />
+						{planet.charactersConnectedId.map(
+							(characterId: string) =>
+								planet.charactersConnectedNames[characterId] && (
+									<Link
+										to={`/people/${characterId}`}
+										key={characterId}
+										className='details-page-listing-item'
+									>
+										{planet.charactersConnectedNames[characterId]}
+									</Link>
+								)
+						)}
+					</div>
+				)}
+			</div>
+		)
 	);
-});
+};

@@ -1,22 +1,24 @@
-import {
-	CharactersDictionary,
-	PlanetsDictionary,
-	VehiclesDictionary,
-} from '../../store/store-types';
+import { ItemData } from '../../utils/utils-types';
 
 interface CharactersList {
 	dataType: 'people';
-	data: CharactersDictionary;
+	data: ItemData[];
+	isLoading: boolean;
+	error: any;
 }
 
 interface VehiclesList {
 	dataType: 'vehicles';
-	data: VehiclesDictionary;
+	data: ItemData[];
+	isLoading: boolean;
+	error: any;
 }
 
 interface PlanetsList {
 	dataType: 'planets';
-	data: PlanetsDictionary;
+	data: ItemData[];
+	isLoading: boolean;
+	error: any;
 }
 
 export type PresentingListProps = CharactersList | VehiclesList | PlanetsList;

@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
 import { RoutePaths } from '../route-paths.js';
-import { CharactersPage } from '../../pages/list-page/characters-page/characters-page.tsx';
 import { NotFound } from '../not-found/not-found.tsx';
 import { DetailsCharacterPage } from '../../pages/details-page/details-character-page/details-character-page.tsx';
 import { PlanetsPage } from '../../pages/list-page/planets-page/planets-page.tsx';
 import { VehiclesPage } from '../../pages/list-page/vehicles-page/vehicles-page.tsx';
+import { CharactersPage } from '../../pages/list-page/characters-page/characters-page.tsx';
 import { DetailsPlanetPage } from '../../pages/details-page/details-planet-page/details-planet-page.tsx';
 import { DetailsVehiclePage } from '../../pages/details-page/details-vehicles-page/details-vehicle-page.tsx';
 

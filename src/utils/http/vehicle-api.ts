@@ -1,34 +1,47 @@
-import { StarWarsStore } from '../../store/store-types';
+import { peopleUrlPrefix, vehiclesUrlPrefix } from '../helpers/prefixes';
+import { fetchName } from './names-api';
+import { VehicleData, basicDictionary } from '../utils-types';
 import { processVehicleData } from '../helpers/vehicle-helpers';
-import { ObjectWithVehiclerResults } from '../utils-types';
-import { apiCall, url } from './basic-api';
 
-export const getVehiclesData = async (page: number) => {
+export const fetchVehicleData = async (
+	id: string,
+	setVehicle: React.Dispatch<VehicleData>,
+	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
+	setError: React.Dispatch<any>
+) => {
+	setIsLoading(true);
+	setError(null);
+
+	const vehicleUrl = `${vehiclesUrlPrefix}${id}`;
+
 	try {
-		const response = await apiCall<ObjectWithVehiclerResults>(
-			`${url}/vehicles/?page=${page}`
+		const response = await fetch(vehicleUrl);
+		const data = await response.json();
+
+		const processedVehicleData = processVehicleData(data);
+
+		const charactersConnectedId = processedVehicleData.charactersConnectedId;
+		const charactersConnectedNames = {} as basicDictionary;
+
+		await Promise.all(
+			charactersConnectedId.map(
+				async (itemId) =>
+					(charactersConnectedNames[itemId] = await fetchName(
+						`${peopleUrlPrefix}${itemId}`
+					))
+			)
 		);
-		return response;
+
+		const vehicle = {
+			...processedVehicleData,
+			charactersConnectedNames,
+		};
+
+		setVehicle(vehicle);
 	} catch (error) {
-		throw error;
-	}
-};
-
-export const storeVehiclesData = async (store: StarWarsStore, page: number) => {
-	try {
-		const apiJSON = await getVehiclesData(page);
-		const vehiclesArray = apiJSON.results;
-
-		vehiclesArray.forEach((vehicle) => {
-			const processedVehicle = processVehicleData(vehicle);
-			store.addVehicle(processedVehicle.id, processedVehicle);
-		});
-
-		if (apiJSON.next) {
-			await storeVehiclesData(store, page + 1);
-		}
-	} catch (error) {
-		console.error(`Error storing vehicle data for page ${page}:`, error);
-		throw error;
+		setIsLoading(false);
+		setError(error);
+	} finally {
+		setIsLoading(false);
 	}
 };

@@ -1,25 +1,19 @@
-import { CharacterData, PlanetData, VehicleData } from '../store/store-types';
+import { ItemData, PlanetIdData, VehicleIdData } from '../utils/utils-types';
 
-export const testDataCharacters: Array<CharacterData> = [
+export const testDataItems: ItemData[] = [
 	{
 		id: '1',
 		name: 'testName1',
 		pictureUrl: 'pictureUrl1',
-		planetId: 'planetId1',
-		vehiclesId: [],
-		speciesId: [],
 	},
 	{
 		id: '2',
 		name: 'AtestName2',
 		pictureUrl: 'pictureUrl2',
-		planetId: 'planetId2',
-		vehiclesId: ['vehiclesId1', 'vehiclesId2'],
-		speciesId: ['speciesId1', 'speciesId2'],
 	},
 ];
 
-export const testDataPlanets: Array<PlanetData> = [
+export const testDataPlanets: Array<PlanetIdData> = [
 	{
 		id: '1',
 		name: 'testName1',
@@ -36,7 +30,7 @@ export const testDataPlanets: Array<PlanetData> = [
 	},
 ];
 
-export const testDataVehicles: Array<VehicleData> = [
+export const testDataVehicles: Array<VehicleIdData> = [
 	{
 		id: '1',
 		name: 'testName1',

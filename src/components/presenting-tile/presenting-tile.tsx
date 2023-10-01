@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { PresentingTileProps } from './presenting-tile-types';
+import { StarWarsImage } from '../star-wars-image/star-wars-image';
 
 import './presenting-tile.scss';
-import { StarWarsImage } from '../star-wars-image/star-wars-image';
 
 export const PresentingTile = ({
 	id,

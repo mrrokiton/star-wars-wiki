@@ -2,12 +2,12 @@ import loadingGif from '../../assets/gifs/loading.gif';
 
 import './loading.scss';
 
-export const Loading = ({ isError }: { isError: boolean }) => {
+export const Loading = ({ error }: { error: any }) => {
 	const messageLoading = (
 		<>
 			<img src={loadingGif} alt='loading gif' />
 			<p>Loading...</p>
-			<p>it might take a minute</p>
+			<p>it might take a second</p>
 		</>
 	);
 
@@ -20,7 +20,7 @@ export const Loading = ({ isError }: { isError: boolean }) => {
 	return (
 		<div className='loading-page'>
 			<div className='loading-page-container'>
-				{isError ? messageError : messageLoading}
+				{error ? messageError : messageLoading}
 			</div>
 		</div>
 	);

@@ -1,37 +1,59 @@
-import { StarWarsStore } from '../../store/store-types';
+import {
+	peopleUrlPrefix,
+	planetsUrlPrefix,
+	speciesUrlPrefix,
+	vehiclesUrlPrefix,
+} from '../helpers/prefixes';
 import { processCharacterData } from '../helpers/character-helpers';
-import { ObjectWithCharactersResults } from '../utils-types';
-import { apiCall, url } from './basic-api';
+import { fetchName } from './names-api';
+import { CharacterData, basicDictionary } from '../utils-types';
 
-export const getCharactersData = async (page: number) => {
-	try {
-		const response = await apiCall<ObjectWithCharactersResults>(
-			`${url}/people/?page=${page}`
-		);
-		return response;
-	} catch (error) {
-		throw error;
-	}
-};
-
-export const storeCharactersData = async (
-	store: StarWarsStore,
-	page: number
+export const fetchCharacterData = async (
+	id: string,
+	setCharacter: React.Dispatch<CharacterData>,
+	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
+	setError: React.Dispatch<any>
 ) => {
+	setIsLoading(true);
+	setError(null);
+
+	const characterUrl = `${peopleUrlPrefix}${id}`;
+
 	try {
-		const apiJSON = await getCharactersData(page);
-		const charactersArray = apiJSON.results;
+		const response = await fetch(characterUrl);
+		const data = await response.json();
 
-		charactersArray.forEach((character) => {
-			const processedCharacter = processCharacterData(character);
-			store.addCharacter(processedCharacter.id, processedCharacter);
-		});
+		const processedCharacterData = processCharacterData(data);
 
-		if (apiJSON.next) {
-			await storeCharactersData(store, page + 1);
-		}
+		const planetId = processedCharacterData.planetId;
+		const speciesId = processedCharacterData.speciesId[0];
+		const vehiclesId = processedCharacterData.vehiclesId;
+
+		const planetName = await fetchName(`${planetsUrlPrefix}${planetId}`);
+		const speciesName = await fetchName(`${speciesUrlPrefix}${speciesId}`);
+		const vehiclesNames = {} as basicDictionary;
+
+		await Promise.all(
+			vehiclesId.map(
+				async (itemId) =>
+					(vehiclesNames[itemId] = await fetchName(
+						`${vehiclesUrlPrefix}${itemId}`
+					))
+			)
+		);
+
+		const character = {
+			...processedCharacterData,
+			planetName,
+			speciesName,
+			vehiclesNames,
+		};
+
+		setCharacter(character);
 	} catch (error) {
-		console.error(`Error storing character data for page ${page}:`, error);
-		throw error;
+		setIsLoading(false);
+		setError(error);
+	} finally {
+		setIsLoading(false);
 	}
 };
