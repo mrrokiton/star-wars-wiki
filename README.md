@@ -12,6 +12,7 @@ Some of the data is missing such as planets and vehicles images due to lack of t
 ## Live demo
 
 lazy-load-api is deployed
+
 [DEMO](https://mrrokiton.github.io/star-wars-wiki/)
 
 Due to Github Pages application will open on not found page, but then just press ```go home``` button
