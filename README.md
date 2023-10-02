@@ -16,6 +16,7 @@ lazy-load-api is deployed
 [DEMO](https://mrrokiton.github.io/star-wars-wiki/)
 
 Due to Github Pages application will open on not found page, but then just press ```go home``` button
+Entering specified object details from URL path is not working on Github Pages Demo
 
 ## Install
 
