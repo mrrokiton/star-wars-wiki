@@ -3,15 +3,9 @@
 This project is small Star Wars wikipedia application.
 Database for it is SWAPI.
 
-**!!! Better version of the project, but without sorting functionality is in branch ```lazy-load-api```, please investigate that version. !!!**
-
-Project is currently loading slowly as it is downloading whole data. The point of this is to have data sorted as API doesn't support sorting.
-
 Some of the data is missing such as planets and vehicles images due to lack of them in [Star Wars Visual Guide](https://starwars-visualguide.com/#/)
 
 ## Live demo
-
-lazy-load-api is deployed
 
 [DEMO](https://mrrokiton.github.io/star-wars-wiki/)
 
